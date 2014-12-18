@@ -1,5 +1,6 @@
 public class calTime {
-	private int tYear, tMonth, tDate, tTime;
+	private int startYearForCalculate, startYearForMonth,
+			startDateForCalculate, startTimeForCalculate;
 
 	private data data;
 	private calDate calDate;
@@ -9,46 +10,50 @@ public class calTime {
 		calDate = new calDate();
 	}
 
-	public void cal(int[] time_data, int year, int month, int date, int wTime) {
-		tYear = year;
-		tMonth = month;
-		tDate = date;
-		tTime = 0;
+	public void cal(int[] timeDataForCalculate, int inputtedStartYear,
+			int inputtedStartMonth, int inputtedStartDate, int inputtedPassTime) {
+		startYearForCalculate = inputtedStartYear;
+		startYearForMonth = inputtedStartMonth;
+		startDateForCalculate = inputtedStartDate;
+		startTimeForCalculate = 0;
 
-		if (wTime == 0) {
-			tYear = tYear;
-			tMonth = tMonth;
-			tDate = tDate;
-			tTime = tTime;
-		} else if (wTime > 0) {
-			if (wTime < 24) {
-				tTime = wTime;
-			} else if (wTime >= 24) {
-				int pDate = wTime / 24;
-				int pMonth = 1;
-				int pYear = tYear;
-				calDate.cal(pYear, pMonth, tDate, pDate);
-				tYear = calDate.getYear();
-				tMonth = calDate.getMonth();
-				tDate = calDate.getDate();
-				tTime = wTime % 24;
+		if (inputtedPassTime == 0) {
+			startYearForCalculate = startYearForCalculate;
+			startYearForMonth = startYearForMonth;
+			startDateForCalculate = startDateForCalculate;
+			startTimeForCalculate = startTimeForCalculate;
+		} else if (inputtedPassTime > 0) {
+			if (inputtedPassTime < 24) {
+				startTimeForCalculate = inputtedPassTime;
+			} else if (inputtedPassTime >= 24) {
+				int incresedPassDate = inputtedPassTime / 24;
+				int incresedPassMonth = 1;
+				int incresedPassYear = startYearForCalculate;
+				calDate.cal(incresedPassYear, incresedPassMonth,
+						startDateForCalculate, incresedPassDate);
+				startYearForCalculate = calDate
+						.getCalculatedYearUsingPassDate();
+				startYearForMonth = calDate.getCalculatedMonthUsingPassDate();
+				startDateForCalculate = calDate
+						.getCalculatedDateUsingPassDate();
+				startTimeForCalculate = inputtedPassTime % 24;
 			}
 		}
 	}
 
-	public int getYear() {
-		return tYear;
+	public int getCalculatedYearUsingPassTime() {
+		return startYearForCalculate;
 	}
 
-	public int getMonth() {
-		return tMonth;
+	public int getCalculatedMonthUsingPassTime() {
+		return startYearForMonth;
 	}
 
-	public int getDate() {
-		return tDate;
+	public int getCalculatedDateUsingPassTime() {
+		return startDateForCalculate;
 	}
 
-	public int getTime() {
-		return tTime;
+	public int getCalculatedTimeUsingPassTime() {
+		return startTimeForCalculate;
 	}
 }

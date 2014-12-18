@@ -1,34 +1,37 @@
+package dday_calculator;
+
 public class data {
-	private int year_data;
-	private int[] month_data, time_data;
+	private int numberOfDaysOnYear;
+	private int[] numberOfDaysOnMonth, hourOnOneDay;
 
 	public data() {
-		month_data = new int[] { 0, 31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30,
-				31 };
-		time_data = new int[] { 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13,
-				14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24 };
+		numberOfDaysOnMonth = new int[] { 0, 31, 28, 31, 30, 31, 30, 31, 31,
+				30, 31, 30, 31 };
+		hourOnOneDay = new int[] { 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12,
+				13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24 };
 	}
 
-	public int getYearData(int year) {
-		if ((year % 4 == 0) && (year % 100 != 0) || year % 400 == 0) {
-			year_data = 366;
+	public int getNumberOfDaysOnYear(int startYear) {
+		if ((startYear % 4 == 0) && (startYear % 100 != 0)
+				|| startYear % 400 == 0) {
+			numberOfDaysOnYear = 366;
 		} else {
-			year_data = 365;
+			numberOfDaysOnYear = 365;
 		}
-		return year_data;
+		return numberOfDaysOnYear;
 	}
 
-	public int[] getMonthData(int year) {
-		if ((year % 4 == 0) && (year % 100 != 0) || year % 400 == 0) {
-			month_data[2] = 29;
+	public int[] getNumberOfDaysOnMonth(int startYear) {
+		if ((startYear % 4 == 0) && (startYear % 100 != 0)
+				|| startYear % 400 == 0) {
+			numberOfDaysOnMonth[2] = 29;
 		} else {
-			month_data[2] = 28;
-			;
+			numberOfDaysOnMonth[2] = 28;
 		}
-		return month_data;
+		return numberOfDaysOnMonth;
 	}
 
-	public int[] getTimeData() {
-		return time_data;
+	public int[] gethourOnOneDay() {
+		return hourOnOneDay;
 	}
 }

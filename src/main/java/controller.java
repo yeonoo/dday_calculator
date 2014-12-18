@@ -1,9 +1,12 @@
 public class controller {
-	private int year, month, date, wDate, wTime;
-	private int dYear, dMonth, dDate;
-	private int tYear, tMonth, tDate, tTime;
-	private int year_data;
-	private int[] month_data, time_data;
+	private int inputtedStartYear, inputtedStartMonth, inputtedStartDate,
+			inputtedPassDate, inputtedPassTime;
+	private int calculatedYearUsingPassdate, calculatedMonthUsingPassDate,
+			calculatedDateUsingPassDate;
+	private int calculatedYearUsingPassTime, calculatedMonthUsingPassTime,
+			calculatedDateUsingPassTime, calculatedTimeUsingPassTime;
+	private int numberOfDaysOnYear;
+	private int[] numberOfDaysOnMonth, hourOnOneDay;
 
 	private input input;
 	private data data;
@@ -20,29 +23,37 @@ public class controller {
 	}
 
 	public void ctr() {
-		input.setDate();
+		input.inputDataWhatUserWants();
 
-		year = input.getYear();
-		month = input.getMonth();
-		date = input.getDate();
-		wDate = input.get_wDate();
-		wTime = input.get_wTime();
+		inputtedStartYear = input.getInputtedStartYear();
+		inputtedStartMonth = input.getInputtedStartMonth();
+		inputtedStartDate = input.getInputtedStartDate();
+		inputtedPassDate = input.getInputtedPassDate();
+		inputtedPassTime = input.getInputtedPassTime();
 
-		time_data = data.getTimeData();
+		hourOnOneDay = data.gethourOnOneDay();
 
-		calDate.cal(year, month, date, wDate);
-		dYear = calDate.getYear();
-		dMonth = calDate.getMonth();
-		dDate = calDate.getDate();
+		calDate.cal(inputtedStartYear, inputtedStartMonth, inputtedStartDate,
+				inputtedPassDate);
+		calculatedYearUsingPassdate = calDate.getCalculatedYearUsingPassDate();
+		calculatedMonthUsingPassDate = calDate
+				.getCalculatedMonthUsingPassDate();
+		calculatedDateUsingPassDate = calDate.getCalculatedDateUsingPassDate();
 
-		calTime.cal(time_data, year, month, date, wTime);
-		tYear = calTime.getYear();
-		tMonth = calTime.getMonth();
-		tDate = calTime.getDate();
-		tTime = calTime.getTime();
+		calTime.cal(hourOnOneDay, inputtedStartYear, inputtedStartMonth,
+				inputtedStartDate, inputtedPassTime);
+		calculatedYearUsingPassTime = calTime.getCalculatedYearUsingPassTime();
+		calculatedMonthUsingPassTime = calTime
+				.getCalculatedMonthUsingPassTime();
+		calculatedDateUsingPassTime = calTime.getCalculatedDateUsingPassTime();
+		calculatedTimeUsingPassTime = calTime.getCalculatedTimeUsingPassTime();
 
-		output.print(year, month, date, wDate, wTime, dYear, dMonth, dDate,
-				tYear, tMonth, tDate, tTime);
+		output.print(inputtedStartYear, inputtedStartMonth, inputtedStartDate,
+				inputtedPassDate, inputtedPassTime,
+				calculatedYearUsingPassdate, calculatedMonthUsingPassDate,
+				calculatedDateUsingPassDate, calculatedYearUsingPassTime,
+				calculatedMonthUsingPassTime, calculatedDateUsingPassTime,
+				calculatedTimeUsingPassTime);
 	}
 
 	public static void main(String[] args) {
