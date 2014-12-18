@@ -1,6 +1,8 @@
+package dday_calculator;
+
 public class calculatorUsingPassDate {
 	private int startYearForCalculate, startMonthForCalculate,
-			startDateForCalculate;
+			startDateForCalculate, passDateForCalculate;
 
 	private dataForCalculate dataForCalculate;
 
@@ -13,56 +15,16 @@ public class calculatorUsingPassDate {
 		startYearForCalculate = inputtedStartYear;
 		startMonthForCalculate = inputtedStartMonth;
 		startDateForCalculate = inputtedStartDate;
+		passDateForCalculate = inputtedPassDate;
 
-		if (startDateForCalculate + inputtedPassDate <= dataForCalculate
-				.getNumberOfDaysOnMonth(startYearForCalculate)[startMonthForCalculate]) {
-			startDateForCalculate = startDateForCalculate + inputtedPassDate;
+		while (passDateForCalculate < dataForCalculate.getNumberOfDaysOnYear(startYearForCalculate)) {
+			passDateForCalculate = passDateForCalculate - dataForCalculate.getNumberOfDaysOnYear(startYearForCalculate);
+			startYearForCalculate++;
 		}
-
-		else if (startDateForCalculate + inputtedPassDate > dataForCalculate
-				.getNumberOfDaysOnMonth(startYearForCalculate)[startMonthForCalculate]) {
-			inputtedPassDate = inputtedPassDate
-					- (dataForCalculate
-							.getNumberOfDaysOnMonth(startYearForCalculate)[startMonthForCalculate] - startDateForCalculate);
+		
+		while (passDateForCalculate < dataForCalculate.getNumberOfDaysOnMonth(startYearForCalculate)[startMonthForCalculate]) {
+			passDateForCalculate = passDateForCalculate - dataForCalculate.getNumberOfDaysOnMonth(startYearForCalculate)[startMonthForCalculate];
 			startMonthForCalculate++;
-
-			int buf = 0;
-
-			for (int i = startMonthForCalculate; i < 13; i++) {
-				buf = buf
-						+ dataForCalculate
-								.getNumberOfDaysOnMonth(startYearForCalculate)[i];
-			}
-
-			if (inputtedPassDate <= buf) {
-				while (inputtedPassDate > dataForCalculate
-						.getNumberOfDaysOnMonth(startYearForCalculate)[startMonthForCalculate]) {
-					inputtedPassDate = inputtedPassDate
-							- (dataForCalculate
-									.getNumberOfDaysOnMonth(startYearForCalculate)[startMonthForCalculate] - startDateForCalculate);
-					startMonthForCalculate++;
-				}
-				startDateForCalculate = inputtedPassDate;
-			} else if (inputtedPassDate > buf) {
-				inputtedPassDate = inputtedPassDate - buf;
-				startYearForCalculate++;
-				startMonthForCalculate = 1;
-				while (inputtedPassDate >= dataForCalculate
-						.getNumberOfDaysOnYear(startYearForCalculate)) {
-					inputtedPassDate = inputtedPassDate
-							- dataForCalculate
-									.getNumberOfDaysOnYear(startYearForCalculate);
-					startYearForCalculate++;
-				}
-				while (inputtedPassDate > dataForCalculate
-						.getNumberOfDaysOnMonth(startYearForCalculate)[startMonthForCalculate]) {
-					inputtedPassDate = inputtedPassDate
-							- (dataForCalculate
-									.getNumberOfDaysOnMonth(startYearForCalculate)[startMonthForCalculate] - startDateForCalculate);
-					startMonthForCalculate++;
-				}
-				startDateForCalculate = inputtedPassDate;
-			}
 		}
 	}
 
