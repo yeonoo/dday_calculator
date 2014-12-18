@@ -1,5 +1,3 @@
-package dday_calculator;
-
 import java.util.*;
 
 public class setDataForCalculate {
@@ -8,10 +6,8 @@ public class setDataForCalculate {
 	private Scanner scan;
 
 	public void inputDataWhatUserWants() {
-		System.out.println("디데이 프로그램입니다.");
-		System.out.println("========================================");
+		System.out.println("- 디데이 프로그램 -");
 		System.out.println("기준이 되는 날을 입력받습니다.");
-		System.out.println("========================================");
 
 		scan = new Scanner(System.in);
 		System.out.print("연도 : ");
@@ -21,12 +17,10 @@ public class setDataForCalculate {
 		System.out.print("일 : ");
 		startDate = scan.nextInt();
 
-		System.out.println("========================================");
-		System.out.println("기준일로부터의 경과일/시간을 입력받습니다.");
-		System.out.println("========================================");
-		System.out.print("몇일째 : ");
+		System.out.println("기준일로부터의 구하고자 하는 경과일/시간을 입력받습니다.");
+		System.out.print("경과일 : ");
 		passDate = scan.nextInt();
-		System.out.print("몇시간째 : ");
+		System.out.print("경과시간 : ");
 		passTime = scan.nextInt();
 	}
 
