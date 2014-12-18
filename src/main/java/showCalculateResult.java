@@ -1,5 +1,3 @@
-package dday_calculator;
-
 public class showCalculatedResult {
 	public void print(int inputtedStartYear, int inputtedStartMonth,
 			int inputtedStartDate, int inputtedPassDate, int inputtedPassTime,
