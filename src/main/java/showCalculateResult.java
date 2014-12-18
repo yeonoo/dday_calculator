@@ -5,9 +5,7 @@ public class showCalculatedResult {
 			int calculatedDateUsingPassDate, int calculatedYearUsingPassTime,
 			int calculatedMonthUsingPassTime, int calculatedDateUsingPassTime,
 			int calcaultedTimeUsingPassTime) {
-		System.out.println("========================================");
-		System.out.println("요청하신 디데이 결과를 출력합니다." + "");
-		System.out.println("========================================");
+		System.out.println("요청하신 디데이 결과를 출력합니다.");
 		System.out.println("기준일은 " + inputtedStartYear + "년 "
 				+ inputtedStartMonth + "월 " + inputtedStartDate + "일입니다.");
 		System.out.println("기준일로부터 " + inputtedPassDate + "일째인 날은 "
