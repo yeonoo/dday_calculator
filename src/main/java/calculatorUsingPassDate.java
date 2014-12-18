@@ -35,6 +35,6 @@ public class calculatorUsingPassDate {
 	};
 
 	public int getCalculatedDateUsingPassDate() {
-		return startDateForCalculate;
+		return passDateForCalculate;
 	};
 }
