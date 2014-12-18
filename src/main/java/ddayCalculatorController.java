@@ -5,7 +5,6 @@ public class ddayCalculatorController {
 			calculatedDateUsingPassDate;
 	private int calculatedYearUsingPassTime, calculatedMonthUsingPassTime,
 			calculatedDateUsingPassTime, calculatedTimeUsingPassTime;
-	private int[] hourOnOneDay;
 
 	private setDataForCalculate setDataForCalculate;
 	private dataForCalculate dataForCalculate;
@@ -31,8 +30,6 @@ public class ddayCalculatorController {
 		inputtedPassDate = setDataForCalculate.getInputtedPassDate();
 		inputtedPassTime = setDataForCalculate.getInputtedPassTime();
 
-		hourOnOneDay = dataForCalculate.gethourOnOneDay();
-
 		calculatorUsingPassDate.cal(inputtedStartYear, inputtedStartMonth,
 				inputtedStartDate, inputtedPassDate);
 		calculatedYearUsingPassdate = calculatorUsingPassDate
@@ -42,7 +39,7 @@ public class ddayCalculatorController {
 		calculatedDateUsingPassDate = calculatorUsingPassDate
 				.getCalculatedDateUsingPassDate();
 
-		calculatorUsingPassTime.cal(hourOnOneDay, inputtedStartYear,
+		calculatorUsingPassTime.cal(inputtedStartYear,
 				inputtedStartMonth, inputtedStartDate, inputtedStartTime, inputtedPassTime);
 		calculatedYearUsingPassTime = calculatorUsingPassTime
 				.getCalculatedYearUsingPassTime();

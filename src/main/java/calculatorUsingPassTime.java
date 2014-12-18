@@ -3,14 +3,12 @@ public class calculatorUsingPassTime {
 			startDateForCalculate, startTimeForCalculate;
 
 	private calculatorUsingPassDate calculatorUsingPassDate;
-	private dataForCalculate dataForCalculate;
 
 	public calculatorUsingPassTime() {
 		calculatorUsingPassDate = new calculatorUsingPassDate();
-		dataForCalculate = new dataForCalculate();
 	}
 
-	public void cal(int[] hoursOnOneDay, int inputtedStartYear,
+	public void cal(int inputtedStartYear,
 			int inputtedStartMonth, int inputtedStartDate, int inputtedStartTime, int inputtedPassTime) {
 		startYearForCalculate = inputtedStartYear;
 		startMonthForCalculate = inputtedStartMonth;
