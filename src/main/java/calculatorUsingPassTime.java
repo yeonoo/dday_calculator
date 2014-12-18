@@ -15,21 +15,19 @@ public class calculatorUsingPassTime {
 		startYearForCalculate = inputtedStartYear;
 		startMonthForCalculate = inputtedStartMonth;
 		startDateForCalculate = inputtedStartDate;
-		startTimeForCalculate = inputtedStartTime;
+		startTimeForCalculate = inputtedStartTime + inputtedPassTime;
 		
 		int increasedPassDate = 0;
 
 		if (inputtedPassTime > 0) {
-			if (startTimeForCalculate + inputtedPassTime < 24) {
-				startTimeForCalculate = startTimeForCalculate + inputtedPassTime;
-			} else if (startTimeForCalculate + inputtedPassTime >= 24) {
-				increasedPassDate = (startTimeForCalculate + inputtedPassTime) / 24;
-				startTimeForCalculate = (startTimeForCalculate + inputtedPassTime) % 24;
+			if (startTimeForCalculate >= 24) {
+				increasedPassDate = startTimeForCalculate / 24;
+				startTimeForCalculate = startTimeForCalculate % 24;
 				
 				calculatorUsingPassDate.cal(startYearForCalculate, startMonthForCalculate, startDateForCalculate, increasedPassDate);
 				
 				startYearForCalculate = calculatorUsingPassDate.getCalculatedYearUsingPassDate();
-				startMonthForCalculate = calculatorUsingPassDate.getCalculatedMonthUsingPassDate();
+				startMonthForCalculate = calculatorUsingPassDate.getCalculatedYearUsingPassDate();
 				startDateForCalculate = calculatorUsingPassDate.getCalculatedDateUsingPassDate();
 			}
 		}
