@@ -1,6 +1,6 @@
 public class calculatorUsingPassDate {
 	private int startYearForCalculate, startMonthForCalculate,
-			startDateForCalculate, dTime;
+			startDateForCalculate;
 
 	private dataForCalculate dataForCalculate;
 

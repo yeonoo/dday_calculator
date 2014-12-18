@@ -7,8 +7,7 @@ public class ddayCalculatorController {
 			calculatedDateUsingPassDate;
 	private int calculatedYearUsingPassTime, calculatedMonthUsingPassTime,
 			calculatedDateUsingPassTime, calculatedTimeUsingPassTime;
-	private int numberOfDaysOnYear;
-	private int[] numberOfDaysOnMonth, hourOnOneDay;
+	private int[] hourOnOneDay;
 
 	private setDataForCalculate setDataForCalculate;
 	private dataForCalculate dataForCalculate;

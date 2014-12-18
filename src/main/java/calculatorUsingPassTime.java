@@ -2,11 +2,9 @@ public class calculatorUsingPassTime {
 	private int startYearForCalculate, startYearForMonth,
 			startDateForCalculate, startTimeForCalculate;
 
-	private dataForCalculate dataForCalculate;
 	private calculatorUsingPassDate calculatorUsingPassDate;
 
 	public calculatorUsingPassTime() {
-		dataForCalculate = new dataForCalculate();
 		calculatorUsingPassDate = new calculatorUsingPassDate();
 	}
 
@@ -17,12 +15,7 @@ public class calculatorUsingPassTime {
 		startDateForCalculate = inputtedStartDate;
 		startTimeForCalculate = 0;
 
-		if (inputtedPassTime == 0) {
-			startYearForCalculate = startYearForCalculate;
-			startYearForMonth = startYearForMonth;
-			startDateForCalculate = startDateForCalculate;
-			startTimeForCalculate = startTimeForCalculate;
-		} else if (inputtedPassTime > 0) {
+		if (inputtedPassTime > 0) {
 			if (inputtedPassTime < 24) {
 				startTimeForCalculate = inputtedPassTime;
 			} else if (inputtedPassTime >= 24) {
