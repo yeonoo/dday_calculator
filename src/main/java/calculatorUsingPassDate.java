@@ -1,5 +1,3 @@
-package dday_calculator;
-
 public class calculatorUsingPassDate {
 	private int startYearForCalculate, startMonthForCalculate,
 			startDateForCalculate, passDateForCalculate;
@@ -17,12 +15,12 @@ public class calculatorUsingPassDate {
 		startDateForCalculate = inputtedStartDate;
 		passDateForCalculate = inputtedPassDate;
 
-		while (passDateForCalculate < dataForCalculate.getNumberOfDaysOnYear(startYearForCalculate)) {
+		while (passDateForCalculate > dataForCalculate.getNumberOfDaysOnYear(startYearForCalculate)) {
 			passDateForCalculate = passDateForCalculate - dataForCalculate.getNumberOfDaysOnYear(startYearForCalculate);
 			startYearForCalculate++;
 		}
 		
-		while (passDateForCalculate < dataForCalculate.getNumberOfDaysOnMonth(startYearForCalculate)[startMonthForCalculate]) {
+		while (passDateForCalculate > dataForCalculate.getNumberOfDaysOnMonth(startYearForCalculate)[startMonthForCalculate]) {
 			passDateForCalculate = passDateForCalculate - dataForCalculate.getNumberOfDaysOnMonth(startYearForCalculate)[startMonthForCalculate];
 			startMonthForCalculate++;
 		}
