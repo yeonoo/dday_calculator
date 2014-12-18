@@ -1,16 +1,16 @@
-public class calTime {
+public class calculatorUsingPassTime {
 	private int startYearForCalculate, startYearForMonth,
 			startDateForCalculate, startTimeForCalculate;
 
-	private data data;
-	private calDate calDate;
+	private dataForCalculate dataForCalculate;
+	private calculatorUsingPassDate calculatorUsingPassDate;
 
-	public calTime() {
-		data = new data();
-		calDate = new calDate();
+	public calculatorUsingPassTime() {
+		dataForCalculate = new dataForCalculate();
+		calculatorUsingPassDate = new calculatorUsingPassDate();
 	}
 
-	public void cal(int[] timeDataForCalculate, int inputtedStartYear,
+	public void cal(int[] hoursOnOneDay, int inputtedStartYear,
 			int inputtedStartMonth, int inputtedStartDate, int inputtedPassTime) {
 		startYearForCalculate = inputtedStartYear;
 		startYearForMonth = inputtedStartMonth;
@@ -29,12 +29,14 @@ public class calTime {
 				int incresedPassDate = inputtedPassTime / 24;
 				int incresedPassMonth = 1;
 				int incresedPassYear = startYearForCalculate;
-				calDate.cal(incresedPassYear, incresedPassMonth,
-						startDateForCalculate, incresedPassDate);
-				startYearForCalculate = calDate
+				calculatorUsingPassDate.cal(incresedPassYear,
+						incresedPassMonth, startDateForCalculate,
+						incresedPassDate);
+				startYearForCalculate = calculatorUsingPassDate
 						.getCalculatedYearUsingPassDate();
-				startYearForMonth = calDate.getCalculatedMonthUsingPassDate();
-				startDateForCalculate = calDate
+				startYearForMonth = calculatorUsingPassDate
+						.getCalculatedMonthUsingPassDate();
+				startDateForCalculate = calculatorUsingPassDate
 						.getCalculatedDateUsingPassDate();
 				startTimeForCalculate = inputtedPassTime % 24;
 			}

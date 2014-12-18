@@ -1,11 +1,11 @@
-public class calDate {
+public class calculatorUsingPassDate {
 	private int startYearForCalculate, startMonthForCalculate,
 			startDateForCalculate, dTime;
 
-	private data data;
+	private dataForCalculate dataForCalculate;
 
-	public calDate() {
-		data = new data();
+	public calculatorUsingPassDate() {
+		dataForCalculate = new dataForCalculate();
 	}
 
 	public void cal(int inputtedStartYear, int inputtedStartMonth,
@@ -14,29 +14,32 @@ public class calDate {
 		startMonthForCalculate = inputtedStartMonth;
 		startDateForCalculate = inputtedStartDate;
 
-		if (startDateForCalculate + inputtedPassDate <= data
+		if (startDateForCalculate + inputtedPassDate <= dataForCalculate
 				.getNumberOfDaysOnMonth(startYearForCalculate)[startMonthForCalculate]) {
 			startDateForCalculate = startDateForCalculate + inputtedPassDate;
 		}
 
-		else if (startDateForCalculate + inputtedPassDate > data
+		else if (startDateForCalculate + inputtedPassDate > dataForCalculate
 				.getNumberOfDaysOnMonth(startYearForCalculate)[startMonthForCalculate]) {
 			inputtedPassDate = inputtedPassDate
-					- (data.getNumberOfDaysOnMonth(startYearForCalculate)[startMonthForCalculate] - startDateForCalculate);
+					- (dataForCalculate
+							.getNumberOfDaysOnMonth(startYearForCalculate)[startMonthForCalculate] - startDateForCalculate);
 			startMonthForCalculate++;
 
 			int buf = 0;
 
 			for (int i = startMonthForCalculate; i < 13; i++) {
 				buf = buf
-						+ data.getNumberOfDaysOnMonth(startYearForCalculate)[i];
+						+ dataForCalculate
+								.getNumberOfDaysOnMonth(startYearForCalculate)[i];
 			}
 
 			if (inputtedPassDate <= buf) {
-				while (inputtedPassDate > data
+				while (inputtedPassDate > dataForCalculate
 						.getNumberOfDaysOnMonth(startYearForCalculate)[startMonthForCalculate]) {
 					inputtedPassDate = inputtedPassDate
-							- (data.getNumberOfDaysOnMonth(startYearForCalculate)[startMonthForCalculate] - startDateForCalculate);
+							- (dataForCalculate
+									.getNumberOfDaysOnMonth(startYearForCalculate)[startMonthForCalculate] - startDateForCalculate);
 					startMonthForCalculate++;
 				}
 				startDateForCalculate = inputtedPassDate;
@@ -44,16 +47,18 @@ public class calDate {
 				inputtedPassDate = inputtedPassDate - buf;
 				startYearForCalculate++;
 				startMonthForCalculate = 1;
-				while (inputtedPassDate >= data
+				while (inputtedPassDate >= dataForCalculate
 						.getNumberOfDaysOnYear(startYearForCalculate)) {
 					inputtedPassDate = inputtedPassDate
-							- data.getNumberOfDaysOnYear(startYearForCalculate);
+							- dataForCalculate
+									.getNumberOfDaysOnYear(startYearForCalculate);
 					startYearForCalculate++;
 				}
-				while (inputtedPassDate > data
+				while (inputtedPassDate > dataForCalculate
 						.getNumberOfDaysOnMonth(startYearForCalculate)[startMonthForCalculate]) {
 					inputtedPassDate = inputtedPassDate
-							- (data.getNumberOfDaysOnMonth(startYearForCalculate)[startMonthForCalculate] - startDateForCalculate);
+							- (dataForCalculate
+									.getNumberOfDaysOnMonth(startYearForCalculate)[startMonthForCalculate] - startDateForCalculate);
 					startMonthForCalculate++;
 				}
 				startDateForCalculate = inputtedPassDate;

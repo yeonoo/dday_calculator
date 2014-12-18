@@ -1,6 +1,8 @@
+package dday_calculator;
+
 import java.util.*;
 
-public class input {
+public class setDataForCalculate {
 	private int startYear, startMonth, startDate, passDate, passTime;
 
 	private Scanner scan;
