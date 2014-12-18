@@ -29,7 +29,7 @@ public class calculatorUsingPassTime {
 				calculatorUsingPassDate.cal(startYearForCalculate, startMonthForCalculate, startDateForCalculate, increasedPassDate);
 				
 				startYearForCalculate = calculatorUsingPassDate.getCalculatedYearUsingPassDate();
-				startMonthForCalculate = calculatorUsingPassDate.getCalculatedYearUsingPassDate();
+				startMonthForCalculate = calculatorUsingPassDate.getCalculatedMonthUsingPassDate();
 				startDateForCalculate = calculatorUsingPassDate.getCalculatedDateUsingPassDate();
 			}
 		}
