@@ -1,54 +1,42 @@
-public class calculatorUsingPassTime {
-	private int startYearForCalculate, startYearForMonth,
-			startDateForCalculate, startTimeForCalculate;
+package dday_calculator;
 
-	private calculatorUsingPassDate calculatorUsingPassDate;
+public class calculatorUsingPassDate {
+	private int startYearForCalculate, startMonthForCalculate,
+			startDateForCalculate, passDateForCalculate;
 
-	public calculatorUsingPassTime() {
-		calculatorUsingPassDate = new calculatorUsingPassDate();
+	private dataForCalculate dataForCalculate;
+
+	public calculatorUsingPassDate() {
+		dataForCalculate = new dataForCalculate();
 	}
 
-	public void cal(int[] hoursOnOneDay, int inputtedStartYear,
-			int inputtedStartMonth, int inputtedStartDate, int inputtedPassTime) {
+	public void cal(int inputtedStartYear, int inputtedStartMonth,
+			int inputtedStartDate, int inputtedPassDate) {
 		startYearForCalculate = inputtedStartYear;
-		startYearForMonth = inputtedStartMonth;
+		startMonthForCalculate = inputtedStartMonth;
 		startDateForCalculate = inputtedStartDate;
-		startTimeForCalculate = 0;
+		passDateForCalculate = inputtedPassDate;
 
-		if (inputtedPassTime > 0) {
-			if (inputtedPassTime < 24) {
-				startTimeForCalculate = inputtedPassTime;
-			} else if (inputtedPassTime >= 24) {
-				int incresedPassDate = inputtedPassTime / 24;
-				int incresedPassMonth = 1;
-				int incresedPassYear = startYearForCalculate;
-				calculatorUsingPassDate.cal(incresedPassYear,
-						incresedPassMonth, startDateForCalculate,
-						incresedPassDate);
-				startYearForCalculate = calculatorUsingPassDate
-						.getCalculatedYearUsingPassDate();
-				startYearForMonth = calculatorUsingPassDate
-						.getCalculatedMonthUsingPassDate();
-				startDateForCalculate = calculatorUsingPassDate
-						.getCalculatedDateUsingPassDate();
-				startTimeForCalculate = inputtedPassTime % 24;
-			}
+		while (passDateForCalculate < dataForCalculate.getNumberOfDaysOnYear(startYearForCalculate)) {
+			passDateForCalculate = passDateForCalculate - dataForCalculate.getNumberOfDaysOnYear(startYearForCalculate);
+			startYearForCalculate++;
+		}
+		
+		while (passDateForCalculate < dataForCalculate.getNumberOfDaysOnMonth(startYearForCalculate)[startMonthForCalculate]) {
+			passDateForCalculate = passDateForCalculate - dataForCalculate.getNumberOfDaysOnMonth(startYearForCalculate)[startMonthForCalculate];
+			startMonthForCalculate++;
 		}
 	}
 
-	public int getCalculatedYearUsingPassTime() {
+	public int getCalculatedYearUsingPassDate() {
 		return startYearForCalculate;
-	}
+	};
 
-	public int getCalculatedMonthUsingPassTime() {
-		return startYearForMonth;
-	}
+	public int getCalculatedMonthUsingPassDate() {
+		return startMonthForCalculate;
+	};
 
-	public int getCalculatedDateUsingPassTime() {
+	public int getCalculatedDateUsingPassDate() {
 		return startDateForCalculate;
-	}
-
-	public int getCalculatedTimeUsingPassTime() {
-		return startTimeForCalculate;
-	}
+	};
 }
