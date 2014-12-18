@@ -1,6 +1,6 @@
 public class calculatorUsingPassDate {
 	private int startYearForCalculate, startMonthForCalculate,
-			startDateForCalculate, passDateForCalculate;
+			passDateForCalculate;
 
 	private dataForCalculate dataForCalculate;
 
@@ -12,8 +12,7 @@ public class calculatorUsingPassDate {
 			int inputtedStartDate, int inputtedPassDate) {
 		startYearForCalculate = inputtedStartYear;
 		startMonthForCalculate = inputtedStartMonth;
-		startDateForCalculate = inputtedStartDate;
-		passDateForCalculate = inputtedPassDate;
+		passDateForCalculate = inputtedStartDate + inputtedPassDate;
 
 		while (passDateForCalculate > dataForCalculate.getNumberOfDaysOnYear(startYearForCalculate)) {
 			passDateForCalculate = passDateForCalculate - dataForCalculate.getNumberOfDaysOnYear(startYearForCalculate);

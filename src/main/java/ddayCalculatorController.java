@@ -7,14 +7,12 @@ public class ddayCalculatorController {
 			calculatedDateUsingPassTime, calculatedTimeUsingPassTime;
 
 	private setDataForCalculate setDataForCalculate;
-	private dataForCalculate dataForCalculate;
 	private calculatorUsingPassDate calculatorUsingPassDate;
 	private calculatorUsingPassTime calculatorUsingPassTime;
 	private showCalculatedResult showCalculatedResult;
 
 	public ddayCalculatorController() {
 		setDataForCalculate = new setDataForCalculate();
-		dataForCalculate = new dataForCalculate();
 		calculatorUsingPassDate = new calculatorUsingPassDate();
 		calculatorUsingPassTime = new calculatorUsingPassTime();
 		showCalculatedResult = new showCalculatedResult();
