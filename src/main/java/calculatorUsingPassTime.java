@@ -1,7 +1,5 @@
-package dday_calculator;
-
 public class calculatorUsingPassTime {
-	private int startYearForCalculate, startYearForMonth,
+	private int startYearForCalculate, startMonthForCalculate,
 			startDateForCalculate, startTimeForCalculate;
 
 	private calculatorUsingPassDate calculatorUsingPassDate;
@@ -11,15 +9,15 @@ public class calculatorUsingPassTime {
 	}
 
 	public void cal(int[] hoursOnOneDay, int inputtedStartYear,
-			int inputtedStartMonth, int inputtedStartDate, int inputtedPassTime) {
+			int inputtedStartMonth, int inputtedStartDate, int inputtedStartTime, int inputtedPassTime) {
 		startYearForCalculate = inputtedStartYear;
-		startYearForMonth = inputtedStartMonth;
+		startMonthForCalculate = inputtedStartMonth;
 		startDateForCalculate = inputtedStartDate;
-		startTimeForCalculate = 0;
+		startTimeForCalculate = inputtedStartTime;
 
 		if (inputtedPassTime == 0) {
 			startYearForCalculate = startYearForCalculate;
-			startYearForMonth = startYearForMonth;
+			startMonthForCalculate = startMonthForCalculate;
 			startDateForCalculate = startDateForCalculate;
 			startTimeForCalculate = startTimeForCalculate;
 		} else if (inputtedPassTime > 0) {
@@ -34,7 +32,7 @@ public class calculatorUsingPassTime {
 						incresedPassDate);
 				startYearForCalculate = calculatorUsingPassDate
 						.getCalculatedYearUsingPassDate();
-				startYearForMonth = calculatorUsingPassDate
+				startMonthForCalculate = calculatorUsingPassDate
 						.getCalculatedMonthUsingPassDate();
 				startDateForCalculate = calculatorUsingPassDate
 						.getCalculatedDateUsingPassDate();
@@ -48,7 +46,7 @@ public class calculatorUsingPassTime {
 	}
 
 	public int getCalculatedMonthUsingPassTime() {
-		return startYearForMonth;
+		return startMonthForCalculate;
 	}
 
 	public int getCalculatedDateUsingPassTime() {
