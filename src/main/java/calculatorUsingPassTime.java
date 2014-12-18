@@ -3,9 +3,11 @@ public class calculatorUsingPassTime {
 			startDateForCalculate, startTimeForCalculate;
 
 	private calculatorUsingPassDate calculatorUsingPassDate;
+	private dataForCalculate dataForCalculate;
 
 	public calculatorUsingPassTime() {
 		calculatorUsingPassDate = new calculatorUsingPassDate();
+		dataForCalculate = new dataForCalculate();
 	}
 
 	public void cal(int[] hoursOnOneDay, int inputtedStartYear,
@@ -14,29 +16,21 @@ public class calculatorUsingPassTime {
 		startMonthForCalculate = inputtedStartMonth;
 		startDateForCalculate = inputtedStartDate;
 		startTimeForCalculate = inputtedStartTime;
+		
+		int increasedPassDate = 0;
 
-		if (inputtedPassTime == 0) {
-			startYearForCalculate = startYearForCalculate;
-			startMonthForCalculate = startMonthForCalculate;
-			startDateForCalculate = startDateForCalculate;
-			startTimeForCalculate = startTimeForCalculate;
-		} else if (inputtedPassTime > 0) {
-			if (inputtedPassTime < 24) {
-				startTimeForCalculate = inputtedPassTime;
-			} else if (inputtedPassTime >= 24) {
-				int incresedPassDate = inputtedPassTime / 24;
-				int incresedPassMonth = 1;
-				int incresedPassYear = startYearForCalculate;
-				calculatorUsingPassDate.cal(incresedPassYear,
-						incresedPassMonth, startDateForCalculate,
-						incresedPassDate);
-				startYearForCalculate = calculatorUsingPassDate
-						.getCalculatedYearUsingPassDate();
-				startMonthForCalculate = calculatorUsingPassDate
-						.getCalculatedMonthUsingPassDate();
-				startDateForCalculate = calculatorUsingPassDate
-						.getCalculatedDateUsingPassDate();
-				startTimeForCalculate = inputtedPassTime % 24;
+		if (inputtedPassTime > 0) {
+			if (startTimeForCalculate + inputtedPassTime < 24) {
+				startTimeForCalculate = startTimeForCalculate + inputtedPassTime;
+			} else if (startTimeForCalculate + inputtedPassTime >= 24) {
+				increasedPassDate = (startTimeForCalculate + inputtedPassTime) / 24;
+				startTimeForCalculate = (startTimeForCalculate + inputtedPassTime) % 24;
+				
+				calculatorUsingPassDate.cal(startYearForCalculate, startMonthForCalculate, startDateForCalculate, increasedPassDate);
+				
+				startYearForCalculate = calculatorUsingPassDate.getCalculatedYearUsingPassDate();
+				startMonthForCalculate = calculatorUsingPassDate.getCalculatedYearUsingPassDate();
+				startDateForCalculate = calculatorUsingPassDate.getCalculatedDateUsingPassDate();
 			}
 		}
 	}
