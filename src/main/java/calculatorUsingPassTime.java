@@ -1,5 +1,3 @@
-package dday_calculator;
-
 public class calculatorUsingPassDate {
 	private int startYearForCalculate, startMonthForCalculate,
 			startDateForCalculate, passDateForCalculate;

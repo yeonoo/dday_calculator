@@ -1,5 +1,3 @@
-package dday_calculator;
-
 public class ddayCalculatorController {
 	private int inputtedStartYear, inputtedStartMonth, inputtedStartDate,
 			inputtedPassDate, inputtedPassTime;
