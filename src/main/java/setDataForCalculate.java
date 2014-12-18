@@ -1,13 +1,13 @@
 import java.util.*;
 
 public class setDataForCalculate {
-	private int startYear, startMonth, startDate, passDate, passTime;
+	private int startYear, startMonth, startDate, startTime, passDate, passTime;
 
 	private Scanner scan;
 
 	public void inputDataWhatUserWants() {
 		System.out.println("- 디데이 프로그램 -");
-		System.out.println("기준이 되는 날을 입력받습니다.");
+		System.out.println("기준이 되는 연월일시를 입력받습니다.");
 
 		scan = new Scanner(System.in);
 		System.out.print("연도 : ");
@@ -16,6 +16,8 @@ public class setDataForCalculate {
 		startMonth = scan.nextInt();
 		System.out.print("일 : ");
 		startDate = scan.nextInt();
+		System.out.print("시각(정시만 입력 가능) : ");
+		startTime = scan.nextInt();
 
 		System.out.println("기준일로부터의 구하고자 하는 경과일/시간을 입력받습니다.");
 		System.out.print("경과일 : ");
@@ -34,6 +36,10 @@ public class setDataForCalculate {
 
 	public int getInputtedStartDate() {
 		return startDate;
+	}
+	
+	public int getInputtedStartTime() {
+		return startTime;
 	}
 
 	public int getInputtedPassDate() {
